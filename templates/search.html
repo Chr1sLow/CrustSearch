@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block meta %}
+    <meta name="page-count" content="{{ page_count }}">
+{% endblock %}
+
+{% block main %}
+    <div class="row mt-5">
+        <div class="col-2">
+            <a href="/" style="text-decoration: none;"><h3 id="search-logo" class="mt-1">Crust Search</h3></a>
+        </div>
+        <form id="search-form" action="/search" class="col-6" method="get">
+            <div class="input-group input-group-lg mb-3">
+                <input autocomplete="off" type="text" class="form-control" id="search-input" name="search" placeholder="Search" value="{{ search }}">
+            </div>
+        </form>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="/search" class="nav-link" id="all">All</a>
+            </li>
+            <li class="nav-item">
+                <a href="/images" class="nav-link" id="images">Images</a>
+            </li>
+        </ul>
+    </nav>
+    <hr>
+    {% if results %}
+        <div class="d-grid gap-3" id="results-display">
+            {% for result in results %}
+                <div class="search-result p-2">
+                    <h4>
+                        <a id="search-url" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0" href="{{ result[1] }}">{{ result[0] }}</a>
+                    </h4>
+                    <p class="text-body-secondary">{{ result[2] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><button class="page-link" id="beginning-arrow" disabled><<</button></li>
+            <li class="page-item"><button class="page-link active" id="page-1">1</button></li>
+            {% if page_count > 1 %}
+                <li class="page-item"><button class="page-link" id="page-2">2</button></li>
+            {% endif %}
+            {% if page_count > 2 %}
+                <li class="page-item"><button class="page-link" id="page-3">3</button></li>
+            {% endif %}
+            {% if page_count == 1 %}
+                <li class="page-item"><button class="page-link" id="end-arrow" disabled>>></button></li>
+            {% else %}
+                <li class="page-item"><button class="page-link" id="end-arrow">>></button></li>
+            {% endif %}
+        </ul>
+    {% elif images %}
+        <div id="image-display">
+            {% for image in images %}
+            <div class="image-content">
+                <a href="{{ image[0] }}"><img src="{{ image[0] }}" alt="{{ image[1] }}"></a>
+                <a href="{{ image[2] }}" class="image-desc">{{ image[2][:35] + '...' if image[2]|length > 35 else image[2] }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div id="no-result-display">
+            <h5>Your search did not match any documents</h5>
+            <h6>Try these things to help your search:</h6>
+            <ul>
+                <li>Check your spelling</li>
+                <li>Make sure what your are searching for exists</li>
+                <li>Search for something else related</li>
+            </ul>
+        </div>
+    {% endif %}
+{% endblock main %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='search-engine/search.js') }}"></script>
+{% endblock %}

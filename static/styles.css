@@ -1,0 +1,99 @@
+a {
+    color: #5f43b2;
+}
+
+p {
+    color: #b1aebb;
+}
+
+hr {
+    margin: 10px;
+}
+
+img {
+    max-height: 200px;
+    max-width: 500px;
+    min-height: 100px;
+    min-width: 250px;
+}
+
+button:disabled, button:disabled:hover {
+    color: #b1aebb;
+    background-color: transparent;
+}
+
+#title-logo {
+    font-size: 48px;
+}
+
+#search-input {
+    border-radius: 25px;
+}
+
+#search-input:focus {
+    outline: 3px solid #DAB1DA;
+}
+
+#search-url:hover {
+    color: #5E095E;
+}
+
+.nav-link:hover {
+    color: #5E095E;
+}
+
+#image-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.image-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    max-height: 300px;
+    max-width: 550px;
+    min-height: 100px;
+    min-width: 250px;
+}
+
+#no-result-display {
+    color: #5f43b2;
+}
+
+#lucky-button {
+    background-color: #5f43b2;
+}
+
+#lucky-button:hover {
+    background-color: #5E095E;
+}
+
+.image-content:hover, .search-result:hover{
+    background-color: #fefdfd;
+}
+
+.search-result {
+    border-radius: 10px;
+}
+
+.page-link {
+    border: none;
+    color: #5f43b2;
+    border-radius: 5px;
+}
+
+.page-link:hover {
+    color: #5E095E;
+}
+
+.page-link.active {
+    background-color: #5f43b2;
+}
+
+.page-link.active:hover {
+    color: white;
+    background-color: #5E095E;
+}

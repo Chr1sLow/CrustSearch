@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<nav class="navbar">
+    <div class="container-fluid d-flex justify-content-end">
+        <ul class="navbar-nav flex-row mx-auto">
+            <a href="/" style="text-decoration: none;"><h1 id="title-logo">Crust Search</h1></a>
+        </ul>
+    </div>
+</nav>
+<form id="search-form" action="/search" method="get">
+    <div class="input">
+        <input autocomplete="off" type="text" class="form-control form-control-lg mb-3" id="search-input" name="search" placeholder="Search">
+        <div class="text-center">
+            <a href="/lucky" type="button" id="lucky-button" class="btn btn-secondary btn-sm">I'm feeling lucky</a>
+        </div>
+    </div>
+</form>
+{% endblock main %}
