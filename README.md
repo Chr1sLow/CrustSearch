@@ -19,6 +19,11 @@ Crust Search is a search engine lets users browse the web in a clean and unclutt
 ```bash
 https://github.com/Chr1sLow/CrustSearch
 ```
+2. Install the necessary Python dependencies
+
+```bash
+pip install -r requirements.txt
+```
     
 ## Usage
 1. Run website locally
